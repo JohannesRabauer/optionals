@@ -5,12 +5,19 @@ That’s what I’m going to.
 # Overview
 It’s basically just a container, that holds a single object. And this object can either be null or not null.
 The contained Object class is defined through the Generic “T”.
-UsageExample 
+![Sketch of Optional](Sketch.png)
+
+See [UsageExample](src/main/java/de/johannes_rabauer/optionals/UsageExample.java)
+ 
 
 # “Why is this useful?” you ask.
 Well it helps to show intent.
 If you see a Optional-object anywhere, it is clear, that there might be nothing in it. It could be empty or there could be something inside. Either way it is easy to find out and handle it accordingly.
 And through this it makes code more readable. And that’s what it’s all about, isn’t it?
+
+See [Comparison](src/main/java/de/johannes_rabauer/optionals/Comparison.java)
+Of course you can still misuse Optional and return null instead of Optional.empty(), but
+this would be a very conscious decision for a developer.
 
 # Initialisation
 There are multiple ways to create an Optional-Object.
@@ -28,21 +35,14 @@ I used Optionals as Parameters, as return-values and within methods. I sent Opti
 It was wonderful. – No, it wasn’t.
 There are several Problems when using Optionals:
 ## Problem 1: Generic
-    public static void doSomething(Optional<Boolean> myBool)
-    {
-    	System.out.println("Do something boolean");
-    }
-    
-    public static void doSomething(Optional<Integer> myInt)
-    {
-    	System.out.println("Do something integer");
-    }
+See [OverloadExample](src/main/java/de/johannes_rabauer/optionals/OverloadExample.java)
+
 It’s not possible to overload a method with generics because of type erasure.
-https://stackoverflow.com/questions/7201231/java-erasure-with-generic-overloading-not-overriding
+[https://stackoverflow.com/questions/7201231/java-erasure-with-generic-overloading-not-overriding](https://stackoverflow.com/questions/7201231/java-erasure-with-generic-overloading-not-overriding)
 
 ## Problem 2: No Serialisation
 Since Optional was only designed to be used as a return value, the java expert group decided to not put any more then the bare necessities in the class. Which excludes being serializable.
-https://stackoverflow.com/a/24564612/2351407
+[https://stackoverflow.com/a/24564612/2351407](https://stackoverflow.com/a/24564612/2351407)
 Stream-APIs
 Optional.stream() since Java 9
 You can find it mostly in Stream-APIs
