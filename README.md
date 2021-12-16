@@ -1,11 +1,11 @@
 # Intro
 Hi, i’m Johannes and I’m a software developer. Some time ago, a colleage asked me, why I used a Java class called “Optional”. So I told him and I thought to myself: Johannes, you should tell people about this beautiful piece of code. 
-That’s what I’m going to.
+Well, that’s what I’m going to do.
 
 # Overview
 It’s basically just a container, that holds a single object. And this object can either be null or not null.
-The contained Object class is defined through the Generic “T”.
 ![Sketch of Optional](Sketch.png)
+The contained Object class is defined through the Generic “T”.
 
 See [UsageExample](src/main/java/de/johannes_rabauer/optionals/UsageExample.java)
  
@@ -21,12 +21,31 @@ this would be a very conscious decision for a developer.
 
 # Initialisation
 There are multiple ways to create an Optional-Object.
-I find the “ofNullable“ call to be the most useful for me. You simply call
-Optional.ofNullable(someObject)
+I find the `ofNullable` call to be the most useful for me. You simply call
+`Optional.ofNullable(someObject)`
 and someObject is wrapped in an Optional. Whether it is null or not.
-You can also create a Not-Null-Optional by calling Optional.of(someObject) whereas the someObject must not be null.
-Or you call Optional.empty() to create an empty Optional-Instance.
+You can also create a Not-Null-Optional by calling `Optional.of(someObject)` whereas the someObject must not be null.
+Or you call `Optional.empty()` to create an empty Optional-Instance.
+
 # Further usage
+Now that we have created these Optional-Objects, we can read them in a lot of different ways.
+The simplest calls are `.get()` and `isEmpty()` which work exactly as one would think.
+`get()` returns the content or, if empty, throws an exception.
+`isEmpty()` tells the caller if there is any content in the Optional or not.
+
+Another way would be to simply call `.orElse(placeholder)`
+This way we can get the content of the Optional-Object, or, if it does not have any content, the placeholder object.
+So we have a very clear and compact way to say: Give me the queried object, or an alternative. 
+This is way better to read then:
+
+		Object result = object;
+		if(result == null)
+		{
+			result = placeholder;
+		}
+
+Lastly i want to point out `ifPresent(Conusmer)` where can execute some action,
+only if there is any content in the Optional-Object.
 
 # What I did
 Sounds like fun, right?

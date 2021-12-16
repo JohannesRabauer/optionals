@@ -7,6 +7,7 @@ public class UsageExample
 	public void main()
 	{
 		Integer input = getPossibleEmptyInput().orElse(0);
+		getPossibleEmptyInput().ifPresent(action);
 	}
 	
     public Optional<Integer> getPossibleEmptyInput()
