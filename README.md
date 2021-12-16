@@ -47,6 +47,10 @@ This is way better to read then:
 Lastly i want to point out `ifPresent(Conusmer)` where can execute some action,
 only if there is any content in the Optional-Object.
 
+## Stream
+Since Java 9 the `stream` methode was added. With that you can easily map Optional of a stream.
+See [BurgerExample](src/main/java/de/johannes_rabauer/optionals/BurgerExample.java)
+
 # What I did
 Sounds like fun, right?
 Well, if you are a child at heart, like me, you learn some new technique or feature and everywhere you look, you’ll see use-cases. So that’s what I did.
@@ -62,14 +66,8 @@ It’s not possible to overload a method with generics because of type erasure.
 ## Problem 2: No Serialisation
 Since Optional was only designed to be used as a return value, the java expert group decided to not put any more then the bare necessities in the class. Which excludes being serializable.
 [https://stackoverflow.com/a/24564612/2351407](https://stackoverflow.com/a/24564612/2351407)
-Stream-APIs
-Optional.stream() since Java 9
-You can find it mostly in Stream-APIs
 
+# Conclusion
+Optionals can make your code more readable. But there a few banana peels along the way. 
 
-
-With us since Java 8
-Optional.stream?!
-
-
-
+Thanks for watching and optionally: have fun!
